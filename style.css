@@ -1,0 +1,181 @@
+header{
+    width: 100%;
+    height: 1200px;
+    background-image: url("images/start.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+  background-color: #685341;
+  margin: auto;
+  position: relative;
+}
+
+
+#menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+    overflow: hidden;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  
+#menu li{
+    float: left;
+  }
+  
+#menu li a {
+    display: block;
+    color:white;
+    text-align: center;
+    padding: 20px 20px;
+    text-decoration: none;
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+  }
+
+#menu li a:hover {
+    background-color:white;
+    color: black;
+    cursor: pointer;
+}
+
+h1{
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 100px;
+  color: #f7fff5;
+  font-family: 'Caveat', cursive;
+  margin: 0;
+}
+h2{
+  top: 60%;
+  width: 100%;
+  text-align: center;
+  font-size: 60px;
+  color: #f7fff5;
+  font-family: 'Caveat', cursive;
+  margin: 0;
+}
+
+#started {
+  background-color: white;
+  opacity: 0.8;
+  color: black;
+  border: 2px solid black;
+  transition-duration: 0.4s;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  top: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#started:hover {
+  background-color:#555555; 
+  color: white;
+  cursor: pointer;
+
+}
+
+#about{
+  padding: 40px;
+  height: 750px;
+  margin:10px;
+  align-content: center;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 30px;
+}
+
+#column{
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  color: #f7fff5;
+  font-size: 40px;
+}
+
+
+h3{
+  font-size: 70px;
+  font-family: 'Caveat', cursive;
+  color: #f7fff5;
+}
+
+
+
+#recipes {
+padding: 10px;
+height: 1050px;
+align-content: center;
+display: grid;
+grid-template-columns: auto auto auto;
+grid-gap: 10px;
+margin: 10px;
+border-top: 2px dotted #333;
+}
+
+.grid-item{
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  color: #f7fff5;
+  font-size: 20px;
+  transition-duration: 0.4s;
+  padding: 30px;
+}
+
+h4{
+  font-family: 'Caveat', cursive;
+  color: #f7fff5;
+  font-size: 50px;
+}
+
+.grid-item:hover{
+  background-color:#333; 
+  cursor: pointer;
+}
+
+footer{
+  height: 100px;
+  position: relative;
+  clear: both; 
+  padding: 10px;
+  margin: 10px;
+  align-content: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  background-color: black;
+  
+}
+
+.grid-footer{
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  color: #f7fff5;
+  font-size: 20px;
+}
+
+#logo{
+  grid-row: 1/3;
+}
+
+.footer-row{
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  color: #f7fff5;
+  font-size: 20px;
+}
+
