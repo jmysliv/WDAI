@@ -1,3 +1,6 @@
+html{
+    scroll-behavior: smooth;
+}
 .view1{
     background: url("images/background3.jpeg")no-repeat center center;
     background-size: cover;
