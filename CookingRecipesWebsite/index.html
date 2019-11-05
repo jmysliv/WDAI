@@ -7,19 +7,36 @@
 
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
     </head>
 
     <body>
         <nav>
-            <ul class="menu">
-                <li>
-                    <img src="images/logo1.png">
-                </li>
-                <li><a  href="#head">Home</a></li>
-                <li><a href="#about">About us</a></li>
-                <li><a href="#recipes">Our Recipes</a></li>
-                <li><a href="#logo">Contact</a></li>
-            </ul>
+            <div >
+                <ul class="menu">
+                    <li>
+                        <img src="images/logo1.png">
+                    </li>
+                    <li><a href="#head">Home</a></li>
+                    <li><a href="#about">About us</a></li>
+                    <li><a href="#recipes">Our Recipes</a></li>
+                    <li><a href="#logo">Contact</a></li>
+                </ul>
+            </div>
+            <div class="navbar">
+                <div class="dropdown">
+                    <button class="dropbtn">
+                    <i class="fa fa-bars"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#head">Home</a>
+                        <a href="#about">About us</a>
+                        <a href="#recipes">Our Recipes</a>
+                        <a href="#logo">Contact</a>
+                    </div>
+                </div> 
+            </div>
         </nav>
         <header id="head">
             <h1 >
@@ -104,7 +121,7 @@
                 <form>
                         Email:<br>
                         <input type="email" name="email"><br>
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="Send">
                 </form>
             </div>
             <div class="grid-footer  second-row-footer">
