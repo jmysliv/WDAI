@@ -142,8 +142,32 @@ h2 {
   text-align: center;
   color: black;
   font-size: 20px;
-  transition-duration: 0.4s;
+  transition-duration: 0.5s;
   padding: 50px;
+}
+
+#main-steak{
+  display: block;
+}
+
+#after-click-steak{
+  display: none;
+}
+
+#main-popsicle{
+  display: block;
+}
+
+#after-click-popsicle{
+  display: none;
+}
+
+#main-salmon{
+  display: block;
+}
+
+#after-click-salmon{
+  display: none;
 }
 
 h4 {
@@ -153,6 +177,12 @@ h4 {
 .ingredients {
   text-align: left;
   list-style-type: circle;
+}
+
+.instructions{
+  font-size: 15px;
+  text-align: left;
+  list-style-type: decimal;
 }
 
 .recipe:hover {
