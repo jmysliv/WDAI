@@ -2,6 +2,73 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Side Nav  */
+.sidenav h1 {
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+}
+.sidenav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 60%;
+  width: 450px;
+  position: fixed;
+  z-index: 1;
+  top: 20%;
+  left: -450px;
+  background-color: black;
+  transition-duration: 0.7s;
+  padding-top: 60px;
+  overflow: hidden;
+}
+
+.sidenav input, .sidenav textarea{
+  width: 80%;
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.sidenav button {
+  background-color: white; 
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin: auto;
+  margin-top: 10px;
+}
+.sidenav button:hover{
+  background-color: #555555;
+  cursor: pointer;
+}
+
+.closebtn:hover {
+  color: #f1f1f1;
+}
+
+.closebtn {
+  padding: 8px 8px 8px 10px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  cursor: pointer;
+}
 header {
   width: 100%;
   height: 800px;
@@ -124,6 +191,41 @@ h2 {
   font-size: 20px;
 }
 
+#add-trigger{
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  z-index: 1;
+}
+
+#add-trigger:hover{
+  background-color: #555555;
+}
+
+.hidden{
+  display: none;
+  transition: transform 0.5s;
+}
+
+.main-recipe{
+  transition: transform 0.5s;
+}
+.close{
+  padding: 10px;
+}
+.close:hover {
+  background-color: #262626;
+  color: white;
+}
+
 .recipes {
   padding: 50px;
   align-content: center;
@@ -144,30 +246,6 @@ h2 {
   font-size: 20px;
   transition-duration: 0.5s;
   padding: 50px;
-}
-
-#main-steak{
-  display: block;
-}
-
-#after-click-steak{
-  display: none;
-}
-
-#main-popsicle{
-  display: block;
-}
-
-#after-click-popsicle{
-  display: none;
-}
-
-#main-salmon{
-  display: block;
-}
-
-#after-click-salmon{
-  display: none;
 }
 
 h4 {
