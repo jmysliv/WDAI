@@ -2,6 +2,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.new-image{
+  width: 100%;
+}
+
 /* Side Nav  */
 .sidenav h1 {
   font-size: 30px;
@@ -12,27 +16,36 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 60%;
-  width: 450px;
+  height: 40%;
+  width: 600px;
   position: fixed;
   z-index: 1;
   top: 20%;
-  left: -450px;
+  left: -700px;
   background-color: black;
   transition-duration: 0.7s;
-  padding-top: 60px;
+  padding: 30px;
   overflow: hidden;
+  color: white;
 }
 
-.sidenav input, .sidenav textarea{
+.side-column input{
+  margin-bottom: 29px;
+}
+
+.side-column textarea{
+  margin-bottom: 10px;
+}
+
+.side-column input, .side-column textarea{
   width: 80%;
-  padding: 8px 8px 8px 32px;
+  padding: 8px;
   text-decoration: none;
   font-size: 16px;
-  color: #818181;
+  color: black;
   display: block;
   transition: 0.3s;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .sidenav button {
@@ -68,6 +81,14 @@ html {
   font-size: 36px;
   margin-left: 50px;
   cursor: pointer;
+}
+
+.grid-side{
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+
 }
 header {
   width: 100%;

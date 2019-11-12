@@ -74,12 +74,23 @@
             <a id="closebtn" class="closebtn">&times;</a>
             <h1>Add Recipe: </h1>
             <form id="recipe-form">
-                <input type="text" id="name" placeholder="Name" />
-                <input type="text" id="primaryImage" placeholder="Main image url"/>
-                <input type="text" id="secondaryImage" placeholder="Secondary image url" />
-                <textarea rows="4" id="recipe" placeholder="Ingredients"></textarea>
-                <textarea rows="4" id="algorithm" placeholder="Instructions"></textarea>
-                <button onclick="addNewRecipieToList(event, getDataFromForm()); closeNav();"> ADD! </button>
+                <div class="grid-side">
+                    <div class="side-column">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" placeholder="Your recipe name" required/>
+                        <label for="primaryImage">Main image url:</label>
+                        <input type="text" id="primaryImage" placeholder="Paste your main image url" pattern="/https?:[\/|.|\w|\s|-]*\.(?:jpg|gif|png).*/g" required/>
+                        <label for="secondaryImage">Secondary image url:</label>
+                        <input type="text" id="secondaryImage" placeholder="Paste your secondary image url" pattern="/https?:[\/|.|\w|\s|-]*\.(?:jpg|gif|png).*/g" required />
+                    </div>
+                    <div class="side-column">
+                        <label for="recipe">Ingredients:</label>
+                        <textarea rows="4" id="recipe" placeholder="Your recipe ingredients" required></textarea>
+                        <label for="algorithm">Instructions:</label>
+                        <textarea rows="4" id="algorithm" placeholder="Your recipe instructions" required></textarea>
+                    </div>
+                </div>
+                <button onclick="addNewRecipe(event, getDataFromForm())">ADD</button>
             </form>
         </div>
 
@@ -91,7 +102,7 @@
                     <h6 class="under-heading">Check out recipes, that our chefs prepare for you!</h6>
                 </div>
                 <div class="grid-recipe-container" id="recipe-container">
-                    <div class="recipe" id="steak" onclick='changeCurrentRecipie("steak")'>
+                    <div class="recipe" id="steak" onclick='changeCurrentRecipe("steak")'>
                         <div class="main-recipe">
                         <img src="images/rsz_steak.jpg"/>
                         <h4>Steak</h4>
@@ -116,7 +127,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="recipe" id="popsicle" onclick='changeCurrentRecipie("popsicle")'>
+                    <div class="recipe" id="popsicle" onclick='changeCurrentRecipe("popsicle")'>
                         <div class="main-recipe">
                         <img src="images/rsz_popsicle.jpg"/>
                         <h4>Popsicle</h4>
@@ -141,7 +152,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="recipe" id="salmon" onclick='changeCurrentRecipie("salmon")'>
+                    <div class="recipe" id="salmon" onclick='changeCurrentRecipe("salmon")'>
                         <div class="main-recipe">
                         <img src="images/rsz_salmon.jpg"/>
                         <h4>Salmon</h4>

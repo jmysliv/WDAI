@@ -6,6 +6,6 @@ function openNav() {
 }
 
 function closeNav() {
-   document.getElementById("Sidenav").style.left = "-450px";
+   document.getElementById("Sidenav").style.left = "-700px";
 }
 

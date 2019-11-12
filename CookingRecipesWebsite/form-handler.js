@@ -1,15 +1,59 @@
-let recipies = {};
+let recipes = {};
 
-registerRecipie('steak');
-registerRecipie('popsicle');
-registerRecipie('salmon');
+addRecipeToList('steak');
+addRecipeToList('popsicle');
+addRecipeToList('salmon');
 
-function removeRecipie(e, id) {
+function removeRecipe(e, id) {
     e.stopPropagation();
-    unregisterRecipie(id);
+    removeRecipeFromList(id);
     let node = document.getElementById(id);
     $(node).fadeOut("slow");
 }
+
+function validateForm(fields) {
+    if(Object.keys(fields).some(el => el === "")) return false;
+    if(fields.primaryImage.match(/https?:[\/|.|\w|\s|-]*\.(?:jpg|gif|png).*/g) === null) return false;
+    return true;
+}
+
+$(document).ready(function() {  
+    $("input").focusout(function() {  
+        if($(this).val()=='') {  
+            $(this).css('border', 'solid 3px red');  
+        } 
+        else { 
+            // If it is not blank. 
+            $(this).css('border', 'solid 3px green');     
+        }     
+    }); 
+    $("textarea").focusout(function() {  
+        if($(this).val()=='') {  
+            $(this).css('border', 'solid 3px red');  
+        } 
+        else { 
+              
+            // If it is not blank. 
+            $(this).css('border', 'solid 3px green');     
+        }     
+    });
+    $("#primaryImage").focusout(function(){
+        if($(this).val().match(/https?:[\/|.|\w|\s|-]*\.(?:jpg|gif|png).*/g) === null){
+            $(this).css('border', 'solid 3px red');  
+        }
+        else { 
+            $(this).css('border', 'solid 3px green');     
+        }     
+    })
+    $("#secondaryImage").focusout(function(){
+        if($(this).val().match(/https?:[\/|.|\w|\s|-]*\.(?:jpg|gif|png).*/g) === null){
+            $(this).css('border', 'solid 3px red');  
+        }
+        else { 
+            $(this).css('border', 'solid 3px green');     
+        }     
+    })
+});
 
 function getDataFromForm() {
     let name = document.getElementById("name").value;
@@ -20,60 +64,69 @@ function getDataFromForm() {
     return { name, primaryImage, secondaryImage, recipe, algorithm };
 }
 
-function createListElements(list) {
+function createList(list) {
     return list.split('\n').map(el => `<li>${el}</li>`).join("\n");
 }
 
-function addNewRecipieToList(e , elements) {
-    e.preventDefault();
-
+function addNewRecipe(e , elements) {
+    // e.preventDefault();
+     
     const {name, primaryImage, secondaryImage, recipe, algorithm} = elements;
-
+    if(!validateForm({name, primaryImage, secondaryImage, recipe, algorithm})) {
+        return;  
+    } 
     let div = document.createElement("div");
     div.classList.add("recipe");
     div.id = name;
-    registerRecipie(div.id);
+    addRecipeToList(div.id);
 
-    div.addEventListener('click', () => changeCurrentRecipie(div.id));
+    div.addEventListener('click', () => changeCurrentRecipe(div.id));
     div.innerHTML += `
         <div class="main-recipe">
-            <img src="${primaryImage}">
+            <img src="${primaryImage}" class="new-image">
             <h4>${name}</h4>
             <p>INGREDIENTS:</p>
             <ul class="ingredients">
-                ${createListElements(recipe)}
+                ${createList(recipe)}
             </ul> 
-            <span class="close" onclick="removeRecipie(event, '${div.id}')" >&times;</span>
+            <span class="close" onclick="removeRecipe(event, '${div.id}')" >&times;</span>
         </div>
         <div class = "hidden">
-            <img src="${secondaryImage}" />
+            <img src="${secondaryImage}" class="new-image"/>
             <h4>HOW TO MAKE IT:</h4>
             <ul class="instructions">
-                ${createListElements(algorithm)}
+                ${createList(algorithm)}
             </ul> 
-            <span class="close" onclick="removeRecipie(event, '${div.id}')" >&times;</span>
+            <span class="close" onclick="removeRecipe(event, '${div.id}')" >&times;</span>
         </div>
     `;
     document.getElementById("recipe-container").appendChild(div)
+    resetForm();
+    closeNav();
+}
+
+function resetForm(){
     document.getElementById("recipe-form").reset();
+    $("input").css('border', 'none');
+    $("textarea").css('border', 'none');  
 }
 
-function registerRecipie(id) {
-    recipies[id] = false;
+function addRecipeToList(id) {
+    recipes[id] = false;
 }
 
-function unregisterRecipie(id) {
-    delete recipies[id];
+function removeRecipeFromList(id) {
+    delete recipes[id];
 }
 
-function getRecipieElements(id) {
+function getRecipeElements(id) {
     let hidden = document.getElementById(id).getElementsByClassName("hidden")[0];
     let main = document.getElementById(id).getElementsByClassName("main-recipe")[0];
     return {  hidden, main}
 }
 
 function animateChange(id, hidden, main) {
-   if(recipies[id]){
+   if(recipes[id]){
         rotate(hidden);
         setTimeout(function(){
             change(hidden, main);
@@ -89,21 +142,20 @@ function animateChange(id, hidden, main) {
    }
 }
 
-function changeCurrentRecipie(id) {
-    for (let recipeId in recipies) {
-        if (id !== recipeId && recipies[recipeId] === true) {
-            const { hidden, main } = getRecipieElements(recipeId);
+function changeCurrentRecipe(id) {
+    for (let recipeId in recipes) {
+        if (id !== recipeId && recipes[recipeId] === true) {
+            const { hidden, main } = getRecipeElements(recipeId);
             animateChange(recipeId, hidden, main);
-            recipies[recipeId] = false;
+            recipes[recipeId] = false;
             break;
         }
     }
-    const { hidden, main } = getRecipieElements(id);
+    const { hidden, main } = getRecipeElements(id);
     animateChange(id, hidden, main);
-    recipies[id] = !recipies[id];
+    recipes[id] = !recipes[id];
 }
 
-//universal function
 function rotate(element){
     element.style.webkitTransform = "rotateY(90deg)"; 
 }
