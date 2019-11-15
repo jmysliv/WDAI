@@ -12,8 +12,14 @@ function removeRecipe(e, id) {
 }
 
 function validateForm(fields) {
-    if(Object.keys(fields).some(el => el === "")) return false;
+    if(fields.name === "") return false;
+    if(fields.primaryImage === "") return false;
+    if(fields.secondaryImage === "") return false;
+    if(fields.recipe === "") return false;
+    if(fields.algorithm === "") return false;
+
     if(fields.primaryImage.match(/https?:[\/|.|\w|\s|-]*\.(?:jpg|gif|png).*/g) === null) return false;
+    if(fields.secondaryImage.match(/https?:[\/|.|\w|\s|-]*\.(?:jpg|gif|png).*/g) === null) return false;
     return true;
 }
 
@@ -69,12 +75,13 @@ function createList(list) {
 }
 
 function addNewRecipe(e , elements) {
-    // e.preventDefault();
-     
+    console.log("dupa");
     const {name, primaryImage, secondaryImage, recipe, algorithm} = elements;
     if(!validateForm({name, primaryImage, secondaryImage, recipe, algorithm})) {
         return;  
     } 
+    console.log("dupa");
+    
     let div = document.createElement("div");
     div.classList.add("recipe");
     div.id = name;

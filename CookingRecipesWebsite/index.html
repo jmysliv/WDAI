@@ -79,9 +79,9 @@
                         <label for="name">Name:</label>
                         <input type="text" id="name" placeholder="Your recipe name" required/>
                         <label for="primaryImage">Main image url:</label>
-                        <input type="text" id="primaryImage" placeholder="Paste your main image url" pattern="/https?:[\/|.|\w|\s|-]*\.(?:jpg|gif|png).*/g" required/>
+                        <input type="text" id="primaryImage" placeholder="Paste your main image url" pattern="https://.+\.[jpg|gif|png].*" required/>
                         <label for="secondaryImage">Secondary image url:</label>
-                        <input type="text" id="secondaryImage" placeholder="Paste your secondary image url" pattern="/https?:[\/|.|\w|\s|-]*\.(?:jpg|gif|png).*/g" required />
+                        <input type="text" id="secondaryImage" placeholder="Paste your secondary image url" pattern="https://.+\.[jpg|gif|png].*" required />
                     </div>
                     <div class="side-column">
                         <label for="recipe">Ingredients:</label>
