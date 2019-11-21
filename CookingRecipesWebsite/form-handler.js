@@ -29,7 +29,6 @@ $(document).ready(function() {
             $(this).css('border', 'solid 3px red');  
         } 
         else { 
-            // If it is not blank. 
             $(this).css('border', 'solid 3px green');     
         }     
     }); 
@@ -37,9 +36,7 @@ $(document).ready(function() {
         if($(this).val()=='') {  
             $(this).css('border', 'solid 3px red');  
         } 
-        else { 
-              
-            // If it is not blank. 
+        else {
             $(this).css('border', 'solid 3px green');     
         }     
     });
@@ -75,12 +72,10 @@ function createList(list) {
 }
 
 function addNewRecipe(e , elements) {
-    console.log("dupa");
     const {name, primaryImage, secondaryImage, recipe, algorithm} = elements;
     if(!validateForm({name, primaryImage, secondaryImage, recipe, algorithm})) {
         return;  
     } 
-    console.log("dupa");
     
     let div = document.createElement("div");
     div.classList.add("recipe");
